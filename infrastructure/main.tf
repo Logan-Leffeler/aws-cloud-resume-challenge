@@ -3,7 +3,7 @@ resource "aws_lambda_function" "myfunc" {
     source_code_hash = data.archive_file.zip.output_base64sha256
     function_name    = "myfunc"
     role             = aws_iam_role.iam_for_lambda.arn
-    handler          = "func.handler"
+    handler          = "func.lambda_handler"
     runtime          = "python3.8"
 }
 
@@ -36,22 +36,29 @@ resource "aws_iam_policy" "iam_policy_for_resume_project" {
             "Version": "2012-10-17",
             "Statement" : [
                 {
-                    "Action" : [
-                        "logs:CreateLogGroup",
-                        "logs:CreateLogStream",
-                        "logs:PutLogEvents"
-                    ],
-                    "Resource" : "arn:aws:logs:*:*:*",
-                    "Effect" : "Allow"
+                    "Effect" : "Allow",
+                    "Action" : "logs:CreateLogGroup",
+                    "Resource" : "arn:aws:logs:*:*:*"
                 },
+
                 {
                     "Effect" : "Allow",
                     "Action" : [
-                        "dynamodb:UpdateItem",
-                        "dynamodb:GetItem"
+                        "logs:CreateLogStream",
+                        "logs:PutLogEvents"
                     ],
-                    "Resource" : "arn:aws:dynamodb:*:*:table/cloud-resume"
+                    "Resource": [
+                         "arn:aws:logs:us-east-1:*:log-group:/aws/lambda/myfunc:*"
+                    ]
                 },
+                
+                {
+                    "Effect" : "Allow",
+                    "Action" : [
+                        "dynamodb:*"
+                    ],
+                    "Resource" : "arn:aws:dynamodb:us-east-1:611725109315:table/cloud-resume"
+                }
             ]
         }
     )  
@@ -73,11 +80,7 @@ resource "aws_lambda_function_url" "url1" {
     authorization_type = "NONE"
 
     cors {
-        allow_credentials = true
-        allow_origins     = ["https://resume.logan-leffeler.com"]
-        allow_methods     = ["*"]
-        allow_headers     = ["date", "keep-alive"]
-        expose_headers    = ["keep-alive", "date"]
-        max_age           = 86400
+        allow_credentials = null
+        allow_origins     = ["*"]
     }
 }
