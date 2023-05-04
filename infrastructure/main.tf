@@ -46,7 +46,7 @@ resource "aws_cloudfront_distribution" "my_distribution" {
         target_origin_id       = "logan-cloud-resume-challenge.s3.us-east-1.amazonaws.com"
         allowed_methods        = ["GET", "HEAD"]
         cached_methods         = ["GET", "HEAD"]
-        viewer_protocol_policy = "https-only"
+        viewer_protocol_policy = "redirect-to-https"
         cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
         compress               = true
     }
