@@ -9,7 +9,7 @@ The Cloud Resume Challenge is a challenge to host your resume on the cloud. The 
 <li>Creating all of these resources via IaC (Infrastructure as Code)</li>
 <li>Implementing CI/CD Pipelines to automatically update the website</li>
 
-![Architecture](https://github.com/Logan-Leffeler/aws-cloud-resume-challenge/blob/main/Cloud-Resume-Architecture.drawio.png?raw=true)
-
 
 [Click here for a live demo](https://resume.logan-leffeler.com)
+
+![Architecture](https://github.com/Logan-Leffeler/aws-cloud-resume-challenge/blob/main/Cloud-Resume-Architecture.drawio.png?raw=true)
