@@ -1,218 +1,579 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Logan Leffeler Resume</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-			background-color: #f0f0f0;
-		}
-		header {
-			background-color: #E3963E;
-			color: #ffffff;
-			padding: 20px;
-			text-align: center;
-		}
-		h1, h2, h3, h4, p {
-			margin: 0;
-		}
-		h1 {
-			font-size: 36px;
-		}
-		h2 {
-			font-size: 24px;
-		}
-		h3 {
-			font-size: 20px;
-			margin-top: 30px;
-		}
-		h4 {
-			font-size: 16px;
-			margin-top: 10px;
-			color: #0077be;
-		}
-		ul {
-			margin: 0;
-			padding: 30;
-			list-style-type: disc;
-		}
-		section {
-			margin: 30px;
-			padding: 20px;
-			background-color: #ffffff;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
-		article {
-			margin-bottom: 30px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan Leffeler - Senior Platform Engineer Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 40px 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        h4 {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-period {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        ul li:before {
+            content: '▸';
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .experience-item:first-child {
+            border-left-color: #27ae60;
+        }
+
+        .education-item {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .certification {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            gap: 20px;
+        }
+
+        .cert-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .summary p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header>
-	<h1>Logan Leffeler</h1>
-	<p> <a href="mailto:email@example.com">leffeler@gmail.com</a>		
-		  |  970-966-5551
-	      |  <a href="http://www.linkedin.com/in/logan-leffeler/">Linkedin</a>
-		  | <a href="https://resume.logan-leffeler.com">Website</a>
-		  | <a href="https://github.com/Logan-Leffeler">Github</a></p>
-<p>
-Cloud Engineering | Systems Administration | Network Management
-<div class="counter-number">Loading view counter...</div>
-</p>
-</header>
+    <div class="container">
+        <header>
+            <h1>Logan Leffeler</h1>
+            <div class="subtitle">Senior Platform Engineer | Cloud Solutions Engineer | AWS | Terraform | Kubernetes
+            </div>
+            <div class="contact-info">
+                <a href="mailto:leffeler@gmail.com">leffeler@gmail.com</a>
+                <a href="tel:970-966-5551">970-966-5551</a>
+                <a href="http://www.linkedin.com/in/logan-leffeler/" target="_blank">LinkedIn</a>
+                <a href="https://resume.logan-leffeler.com" target="_blank">Portfolio</a>
+                <a href="https://github.com/Logan-Leffeler" target="_blank">GitHub</a>
+            </div>
+        </header>
 
-<section>
-	<h2>Summary</h2>
-	<p>Experienced Cloud Engineer with expertise in designing, implementing, and maintaining cloud infrastructure. Skilled in cloud architecture, automation, and security. Strong problem-solving abilities and excellent communication skills.</p>
-</section>
+        <section class="summary">
+            <h2>Professional Summary</h2>
+            <p>
+                Senior Platform Engineer specializing in enterprise cloud enablement, internal developer platforms,
+                and infrastructure automation. Experienced operating large-scale cloud platforms supporting hundreds
+                of developers, hundreds of AWS accounts, and thousands of Terraform workspaces. Skilled in Terraform
+                Enterprise, Amazon EKS, AWS architecture, CI/CD automation, and building self-service platforms that
+                enable engineering teams to deliver applications securely and efficiently.
+            </p>
+        </section>
+        <section>
+            <h2>Core Competencies</h2>
 
-<section>
-	<h2>Skills</h2>
-	<ul>
-		<li>Cloud architecture and design</li>
-		<li>Infrastructure automation: Terrafrorm, Cloudformation</li>
-		<li>Cloud security: IAM, Security Groups, WAF</li>
-		<li>Containerization and orchestration: Docker, Kubernetes, EKS, ECS</li>
-		<li>Programming languages: Python</li>
-		<li>Database management: SQL, NoSQL</li>
-		<li>Ml-Ops: Sagemaker, Jupyter notebooks</li>
-		<li>Networking:  HTTP, TCP/IP, VOIP, UDP, TCP, RIP, OSPF, BGP, EIGRP, HSRP, STP, ARP, QOS, NAT, DNS, DHCP, Load balancing, EtherChannel</li>
-	</ul>
-</section>
+            <div class="skills-grid">
 
-<section>
-	<h2>Professional Experience</h2>
-	<article>
-		<h3>Cloud Solutions Engineer</h3>
-		<h4>Bayer</h4>
-		<p>June 2023 - Present</p>
-		<ul>
-			<li>Designed and implemented a Lambda Azure JWT authorizer to secure APIs, enabling seamless integration with identity providers</li>
-			<li>Built an API Gateway endpoint to facilitate secure and scalable access to SageMaker inference endpoints, supporting asynchronous and serverless execution</li>
-			<li>Developed Terraform Infrastructure as Code (IaC) templates for provisioning EC2 instances and other AWS resources, ensuring consistent and efficient deployments</li>
-			<li>Engineered event-driven architecture to automatically update model metadata documentation, streamlining data management and compliance</li>
-			<li>Automated end-to-end CI/CD workflows with GitHub Actions, accelerating deployment processes and reducing manual intervention</li>
-			<li>Deployed cross-platform data sync services to multi-cloud environments, ensuring robust and reliable cloud-native operations</li>
-			<li>Load test applications using Python and the Locust framework</li>
-			<li>Leverage GraphQL for efficient database querying and mutation, optimizing API performance</li>
-			<li>Build active learning models with Python frameworks</li>
-			<li>Designed and deployed an automated EC2 shutdown tool, optimizing cloud costs and saving hundreds of thousands annually</li>
-		</ul>
-	</article>
-	<article>
-		<h3>Application Support</h3>
-		<h4>Salesforce</h4>
-		<p>December 2021 - December 2022</p>
-		<ul>
-			<li>Manage back end of AI applications fixing issues with data flows and creating reports </li>
-			<li>Lead investigations for issues when needed</li>
-			<li>Work in team environment</li>
-			<li>Report on status of new platform</li>
-		</ul>
-	</article>
-	<article>
-		<h3>QA Tester</h3>
-		<h4>HP</h4>
-		<p>March 2020 - Nov 2021</p>
-		<ul>
-			<li>Test new releases ensuring that all parts of the software work together properly</li>
-			<li>Report bugs to Jira and work with developers to find resolutions</li>
-			<li>Competitive Analysis using other similar softwares to find our strengths and weaknesses comparitavely</li>
-			<li>Work with developers to go over any questions about bugs and verify fixed bugs</li>
-			<li>Work with QA team to compare software test results and design new tests</li>
-			<li>Set up new test environments</li>
-		</ul>
-	</article>
-	<article>
-		<h3>IT Technician</h3>
-		<h4>C-P-U (MSP)</h4>
-		<p>April 2019 - March 2020</p>
-		<ul>
-			<li>Network Maintenance/Design design - set up and maintain networking environments</li>
-			<li>Maintain Exchange, DHCP, DNS, RDS servers</li>
-			<li>Office 365/Exchange Online - set up companies O365 environment and manage user licenses/troubleshoot O365 issues</li>
-			<li>Microsoft AD - Set up and maintain Microsoft AD environments</li>
-			<li> Take calls for various network/computer issues; troubleshoot remotely and on-site</li>
-			<li>Work together with other technicians to solve my own issues as well as their issues</li>
-		</ul>
-	</article>
-	<article>
-		<h3>IT Technician</h3>
-		<h4>Southeast Missouri State University</h4>
-		<p>January 2017 - April 2019</p>
-		<ul>
-			<li>Configured virtual lab environment using VMWare vSphere</li>
-			<li>Design Visio documents outlining network toplogy</li>
-			<li>Priced out equipment - routers, switches, servers, cabling, labor, PC Components</li>
-			<li>Created computer images hosting over 200gb of software and deployed those images over the network</li>
-			<li>Managed licensing on over 10 software packages</li>
-			<li>Made scripts to associate fole types with applications and to change properties of programs on several PCs at once</li>
-		</ul>
-	</article>
-</section>
+                <div class="skill-category">
+                    <h4>Cloud Platforms & Architecture</h4>
+                    <ul>
+                        <li>AWS (EKS, EC2, Lambda, API Gateway, ECS/Fargate, Elastic Beanstalk)</li>
+                        <li>Azure Identity Services and JWT Authentication</li>
+                        <li>Multi-account AWS environments</li>
+                        <li>Cloud architecture and platform engineering</li>
+                    </ul>
+                </div>
 
-<section>
-	<h2>Educational Experience</h2>
-	<br>
-	<article>
-		<h3>Designing and building Cloud Architecture:</h3> 
-		<h4>AWS Solutions Architect Associate</h4>
-		<ul>
-			<li>Serverless and containerized design architectures</li>
-			<li> Secure Identity and Access Management </li>
-			<li>Secure Networking Configurations</li>
-			<li>Monitoring and Compliance</li>
-			<li>Scalability and High Availability</li>
-		</ul>
-		<h3>Installing/maintaining servers:</h3>
-		<h4>TN395 Server Maintenance & Troubleshooting</h4>
-		<ul>
-			<li>DHCP, DNS, Active Directory, SIP, Exchange, Web, ESXi, PBX, SQL, SCCM, Imaging server</li>
-		</ul>
-		<h3>Network design:</h3>
-		<h4>Cisco Netacad</h4>
-		<ul>
-			<li>Completely designed multi-tiered networks, complete with STP, EtherChannel, redundancy, dynamic routing, both layer 2 and 3 switches, and multiple ISPs</li>
-		</ul>
-		<h3>Configuring routing equipment:</h3> 
-		<h4>Cisco Netacad</h4>
-		<ul>
-			<li>Setting IPs, Configuring routing protocols, Setting up VLANs, implementing security, EtherChannel, STP, HSRP load balancing, OSPF, EIGRP, BGP and other similar protocols.</li>
-		</ul>
-		<h3>Virtualization:</h3>
-		<h4>TN475 Scaling Networks</h4>
-		<ul>
-			<li>Made a virtual environment on vSphere of virtual servers connected to a physical network consisting of switches, a router, and a firewall using a vSwitch</li>
-		</ul>
-		<h3>Working on physical equipment:</h3> 
-		<h4>TN255 Microcomputer Maintenance & Troubleshooting</h4>
-		<ul>
-			<li>Installing/replacing RAM, Motherboards, Processors, HDD, SSD, Video Cards, NICs, Power Supplies, Optical drives, general troubleshooting </li>
-        </ul>	
-	</article>
-</section>
 
-<section>
-	<h2>Education</h2>
-	<article>
-		<h3>Bachelor of Science in Computer Networking & Telecommunications</h3>
-		<h4>Southeast Missouri State University</h4>
-		<p>May 2015 - May 2019</p>
-	</article>
-</section>
+                <div class="skill-category">
+                    <h4>Infrastructure as Code & Automation</h4>
+                    <ul>
+                        <li>Terraform Enterprise</li>
+                        <li>Terraform Modules</li>
+                        <li>Infrastructure as Code (IaC)</li>
+                        <li>Python Automation</li>
+                        <li>Bash / PowerShell</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
 
-<section>
-	<h2>Certifications</h2>
-	<article>
-		<h3>AWS Certified Solutions Architect Associate</h3>
-		<p>February 2023 - February 2026</p>
-		<img src=aws_solutions_architect_associate.png width=100px height=100px>
-	</article>
-</section>
-</section>
 
-<script src="./index.js"></script>
+                <div class="skill-category">
+                    <h4>Platform Engineering & Kubernetes</h4>
+                    <ul>
+                        <li>Amazon EKS</li>
+                        <li>Kubernetes Administration</li>
+                        <li>Helm Deployments</li>
+                        <li>Internal Developer Platforms</li>
+                        <li>Developer Self-Service Enablement</li>
+                    </ul>
+                </div>
+
+
+                <div class="skill-category">
+                    <h4>CI/CD & Security</h4>
+                    <ul>
+                        <li>Jenkins</li>
+                        <li>Groovy Pipeline Development</li>
+                        <li>Bitbucket Integration</li>
+                        <li>GitHub Actions</li>
+                        <li>AWS IAM</li>
+                        <li>JWT/OAuth Authentication</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        <div class="experience-item">
+
+            <div class="job-header">
+                <div>
+                    <h3>Senior Platform Engineer</h3>
+                    <h4>Enterprise Mobility</h4>
+                </div>
+
+                <div class="job-period">November 2025 - Present</div>
+            </div>
+
+
+            <ul>
+
+                <li>
+                    Design, operate, and enhance an enterprise internal developer platform enabling dozens of
+                    application teams
+                    and hundreds of developers to provision and deploy cloud workloads through standardized automation
+                    patterns.
+                </li>
+
+
+                <li>
+                    Own and manage the <strong>Terraform Enterprise platform deployed on Amazon EKS</strong>, supporting
+                    thousands of Terraform workspaces across hundreds of AWS accounts while maintaining platform
+                    reliability,
+                    scalability, and operational efficiency.
+                </li>
+
+
+                <li>
+                    Architect and establish enterprise-grade Terraform modules, defining self-service IaC standards that
+                    enable hundreds of developers to deploy standardized AWS infrastructure safely.
+                </li>
+                <li>
+                    Participate in on-call rotation and incident response activities, troubleshooting production
+                    platform issues,
+                    coordinating resolution efforts, and implementing improvements to increase reliability and reduce
+                    recurring incidents.
+                </li>
+                <li>
+                    Drive technical troubleshooting and root-cause resolution during enterprise incident response calls,
+                    investigating complex platform failures and implementing critical fixes across high-scale production
+                    environments.
+                </li>
+                <li>
+                    Manage Kubernetes-based platform operations including EKS administration, Helm deployments,
+                    upgrades,
+                    troubleshooting, and production support.
+                </li>
+                <li>
+                    Serve as a technical point of contact with vendors including AWS and HashiCorp, leading issue
+                    resolution,
+                    platform improvements, and solution discussions to align cloud capabilities with enterprise business
+                    needs.
+                </li>
+
+                <li>
+                    Build and maintain hundreds of <strong>Jenkins CI/CD pipelines using Groovy</strong> to automate
+                    application
+                    build and release workflows from Bitbucket repositories.
+                </li>
+
+
+                <li>
+                    Maintain and enhance internal Python-based automation applications supporting enterprise image
+                    creation,
+                    application patching, and technical demonstrations.
+                </li>
+
+
+                <li>
+                    Improve internal automation platforms through application enhancements, reliability improvements,
+                    and operational troubleshooting.
+                </li>
+                <li>Lead and mentor cross-functional engineers on AWS architecture, Python automation standards, and
+                    unit testing practices, elevating internal team capabilities and accelerating cloud adoption across
+                    the organization.</li>
+
+
+                <li>
+                    Partner with application engineering teams to onboard workloads, resolve deployment challenges,
+                    and improve cloud delivery practices.
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="experience-item">
+
+            <div class="job-header">
+                <div>
+                    <h3>Senior Cloud Solutions Engineer</h3>
+                    <h4>Bayer Corporation</h4>
+                </div>
+
+                <div class="job-period">May 2023 - November 2025</div>
+            </div>
+
+
+            <ul>
+
+                <li>
+                    Designed and implemented AWS cloud automation solutions using Terraform, serverless technologies,
+                    and CI/CD workflows.
+                </li>
+
+                <li>
+                    Developed reusable Terraform infrastructure templates supporting AWS resources,
+                    networking components, and enterprise application deployments.
+                </li>
+
+                <li>
+                    Built secure API Gateway integrations using Lambda-based Azure JWT authorization.
+                </li>
+
+                <li>
+                    Developed SageMaker inference solutions supporting scalable machine learning workloads.
+                </li>
+
+                <li>
+                    Created event-driven AWS architectures using Lambda and EventBridge to automate operational
+                    workflows.
+                </li>
+
+                <li>
+                    Built containerized FastAPI applications deployed using AWS ECS/Fargate.
+                </li>
+
+                <li>
+                    Implemented GitHub Actions automation to improve deployment consistency and reduce manual processes.
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <h3>Application Support Specialist</h3>
+                    <h4>Salesforce</h4>
+                </div>
+                <div class="job-period">December 2021 - December 2022</div>
+            </div>
+            <ul>
+                <li>Managed backend operations for AI-driven applications, troubleshooting data flows and generating
+                    comprehensive performance reports</li>
+                <li>Led cross-functional incident investigations, collaborating with development teams to resolve
+                    critical platform issues</li>
+                <li>Monitored and reported on new platform deployments, ensuring stability and performance benchmarks
+                </li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <h3>QA Tester</h3>
+                    <h4>HP Inc.</h4>
+                </div>
+                <div class="job-period">March 2020 - November 2021</div>
+            </div>
+            <ul>
+                <li>Tested software releases ensuring integration and functionality across all system components</li>
+                <li>Documented and tracked bugs using Jira, collaborating with development teams to identify and verify
+                    resolutions</li>
+                <li>Conducted competitive analysis of similar software products to identify strengths and improvement
+                    opportunities</li>
+                <li>Designed and implemented new testing environments and test cases in collaboration with QA team</li>
+                <li>Verified bug fixes and worked closely with developers to clarify requirements and testing scenarios
+                </li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <h3>IT Systems Technician</h3>
+                    <h4>C-P-U (Managed Service Provider)</h4>
+                </div>
+                <div class="job-period">April 2019 - March 2020</div>
+            </div>
+            <ul>
+                <li>Designed and maintained enterprise network infrastructures including Exchange, DHCP, DNS, and RDS
+                    servers</li>
+                <li>Implemented Office 365/Exchange Online environments, managing user licensing and troubleshooting
+                    integration issues</li>
+                <li>Administered Microsoft Active Directory environments across multiple client organizations</li>
+                <li>Provided remote and on-site technical support for network and system issues</li>
+            </ul>
+        </div>
+        </section>
+
+        <section>
+            <h2>Education & Certifications</h2>
+
+            <div class="education-item">
+                <h3>Bachelor of Science in Computer Networking & Telecommunications</h3>
+                <h4>Southeast Missouri State University</h4>
+                <div class="job-period">May 2015 - May 2019</div>
+            </div>
+
+            <div class="certification">
+                <div class="cert-badge">AWS SAA</div>
+                <div>
+                    <h3>AWS Certified Solutions Architect Associate</h3>
+                    <div class="job-period">February 2023</div>
+                    <p>Expertise in designing distributed systems on AWS with focus on scalability, security, and cost
+                        optimization</p>
+                </div>
+            </div>
+        </section>
+        <section>
+
+            <h2>Key Technical Projects</h2>
+
+            <ul>
+
+                <li>
+                    <strong>Enterprise Terraform Platform:</strong>
+                    Managed Terraform Enterprise running on Amazon EKS as a shared internal developer platform
+                    supporting
+                    thousands of Terraform workspaces across hundreds of AWS accounts.
+                </li>
+
+
+                <li>
+                    <strong>Developer Self-Service Platform:</strong>
+                    Created reusable Terraform modules and automation workflows enabling application teams to provision
+                    standardized cloud infrastructure without direct platform intervention.
+                </li>
+
+
+                <li>
+                    <strong>CI/CD Platform Automation:</strong>
+                    Developed and maintained hundreds of Jenkins pipelines using Groovy to automate application build
+                    and release processes.
+                </li>
+
+
+                <li>
+                    <strong>Cloud Automation Applications:</strong>
+                    Maintained Python-based automation platforms supporting image creation, application patching,
+                    and enterprise demonstrations.
+                </li>
+
+
+                <li>
+                    <strong>AWS Serverless Architecture:</strong>
+                    Designed Lambda and API Gateway solutions with secure JWT-based authentication and Terraform-managed
+                    infrastructure.
+                </li>
+
+            </ul>
+
+        </section>
+    </div>
+
 </body>
+
 </html>
